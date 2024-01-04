@@ -1,7 +1,7 @@
 {
   "lock": true,
   "tasks": {
-    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "check": "deno fmt --check --ignore=./static/confetti.min.js,./_fresh/ && deno lint --ignore=./static/confetti.min.js,./_fresh/ && deno check ./main.ts",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
     "manifest": "deno task cli manifest $(pwd)",
     "start": "deno run -A --watch=static/,routes/ dev.ts",

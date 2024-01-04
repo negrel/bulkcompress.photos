@@ -5,8 +5,7 @@ start:
 
 .PHONY: lint
 lint:
-	deno lint --ignore=./static/confetti.min.js,./_fresh/
-	deno check ./main.ts
+	deno task check
 
 .PHONY: build
 build:
