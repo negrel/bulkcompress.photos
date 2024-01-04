@@ -17,6 +17,13 @@ export default function Home() {
       <footer className="absolute bottom-0 w-full p-4 dark:bg-slate-800 bg-slate-200">
         <nav className="flex justify-end gap-4 text-sm">
           <a
+            href="https://www.buymeacoffee.com/negrel"
+            className="underline"
+            target="_blank"
+          >
+            Buy me a coffee
+          </a>
+          <a
             href="https://github.com/negrel/bulkcompress.photos"
             className="underline"
             target="_blank"
