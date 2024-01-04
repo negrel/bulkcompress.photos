@@ -1,14 +1,19 @@
 import HomeIsland from "@/islands/Home.tsx";
+import PhotoIcon from "@/components/PhotoIcon.tsx";
 
 export default function Home() {
   return (
-    <section className="text-slate-950 dark:text-slate-50">
-      <header className="text-center mt-8" id="#top">
-        <h1 className="text-xl md:text-2xl inline uppercase font-bold">
+    <>
+      <header
+        className="text-center mt-8"
+        id="#top"
+      >
+        <PhotoIcon className="w-16 h-16 mx-auto" />
+        <h1 className="text-xl md:text-2xl uppercase font-bold">
           Bulk photos compressor
         </h1>
       </header>
       <HomeIsland />
-    </section>
+    </>
   );
 }

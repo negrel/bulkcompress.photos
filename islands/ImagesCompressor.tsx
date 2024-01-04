@@ -1,5 +1,5 @@
 import Button from "@/components/Button.tsx";
-import { getImages } from "@/signals/images.ts";
+import { getImages, getSelectedImages } from "@/signals/images.ts";
 import OutlinedButton from "@/components/OutlinedButton.tsx";
 import ImagesGallery from "@/islands/ImagesGallery.tsx";
 import {
@@ -49,9 +49,10 @@ function IdleSection() {
     name: "compressAsZip",
     label: "Zip file",
     inputCheckbox: {
-      checked: compressionOptions.zipFile,
+      checked: getSelectedImages().length >= 2 && compressionOptions.zipFile,
       onChange: (value: boolean) =>
         updateCompressionOptions({ zipFile: value }),
+      disabled: getSelectedImages().length <= 1,
     },
   }];
 

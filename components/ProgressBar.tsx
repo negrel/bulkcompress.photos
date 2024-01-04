@@ -18,7 +18,7 @@ function ProgressBar(
       </div>
       <div class="flex-start flex h-2.5 w-full overflow-hidden rounded-full dark:bg-slate-800 bg-slate-200 font-sans text-xs font-medium">
         <div
-          class="flex items-center justify-center h-full overflow-hidden dark:bg-slate-50 bg-slate-950 break-all rounded-full"
+          class="flex items-center justify-center h-full overflow-hidden dark:bg-slate-50 bg-slate-950 break-all rounded-full tansition ease-linear duration-100"
           style={{
             width: `${percentage}%`,
           }}

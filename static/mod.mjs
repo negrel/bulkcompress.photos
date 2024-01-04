@@ -62,21 +62,24 @@
 const offscreenCanvas = new OffscreenCanvas(4096, 4096);
 
 window.compress = async (imageFile, quality) => {
-  const ctx = offscreenCanvas.getContext('2d')
+  const ctx = offscreenCanvas.getContext("2d");
 
-  ctx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height)
+  ctx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
 
-  const bitmap = await createImageBitmap(imageFile)
-  offscreenCanvas.width = bitmap.width
-  offscreenCanvas.height = bitmap.height
+  const bitmap = await createImageBitmap(imageFile);
+  offscreenCanvas.width = bitmap.width;
+  offscreenCanvas.height = bitmap.height;
   ctx.drawImage(bitmap, 0, 0);
 
-  const blob = await offscreenCanvas.convertToBlob({ type: imageFile.type, quality: quality / 100 })
-  return blob.arrayBuffer()
+  const blob = await offscreenCanvas.convertToBlob({
+    type: imageFile.type,
+    quality: quality / 100,
+  });
+  return blob.arrayBuffer();
 
   // return new Promise((resolve, reject) => {
   //   offscreenCanvas.toBlob(async (blob) => {
   //     resolve(await blob.arrayBuffer())
   //   }, imageFile.type, quality / 100)
   // })
-}
+};

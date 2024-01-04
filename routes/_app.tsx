@@ -11,7 +11,7 @@ export default function App({ Component }: PageProps) {
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         <script type="module" src="/mod.mjs"></script>
       </head>
-      <body className="bg-slate-50 dark:bg-slate-950">
+      <body className="bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-slate-50">
         <Component />
       </body>
     </html>
