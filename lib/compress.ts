@@ -77,8 +77,8 @@ export async function compress(
 }
 
 function downloadBlob(blob: Blob, filename: string) {
-  // const anchor = document.createElement("a");
-  // anchor.href = window.URL.createObjectURL(blob);
-  // anchor.download = filename;
-  // anchor.click();
+  const anchor = document.createElement("a");
+  anchor.href = window.URL.createObjectURL(blob);
+  anchor.download = filename;
+  anchor.click();
 }
