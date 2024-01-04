@@ -1,0 +1,31 @@
+name: push
+on:
+  push:
+    paths-ignore:
+      - ".gitignore"
+      - "LICENSE"
+      - ".github/images"
+      - "README.md"
+jobs:
+  push:
+    permissions:
+      id-token: write
+      contents: read
+    if: "! contains(github.ref, 'refs/tags/')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - uses: cachix/install-nix-action@v22
+        with:
+          extra_nix_config: "system-features = nixos-test benchmark big-parallel kvm"
+      - run: printenv
+      - name: Lint
+        run: nix develop --command make lint
+      - name: Build
+        run: nix develop --command make build
+      - name: Deploy to Deno Deploy
+        uses: denoland/deployctl@v1
+        with:
+          project: bulkcompressphotos
+          entrypoint: main.ts
