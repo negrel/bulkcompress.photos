@@ -1,5 +1,6 @@
 import { signal } from "@preact/signals";
 import { CompressionOptions } from "@/lib/compress.ts";
+import { getSelectedImages } from "@/signals/images.ts";
 
 const isCompressing = signal(false);
 
@@ -32,7 +33,9 @@ export function resetCompressionOptions() {
 }
 
 export function getCompressionOptions() {
-  return { ...compressionOptions.value };
+  const zipFile = getSelectedImages().length >= 2 &&
+    compressionOptions.value.zipFile;
+  return { ...compressionOptions.value, zipFile };
 }
 
 export function updateCompressionOptions(
