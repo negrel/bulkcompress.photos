@@ -88,6 +88,7 @@ function ImagesGallery() {
               <img
                 src={src}
                 alt={imageFile.name}
+                sizes="(max-width: 800px)"
                 className="h-96 min-w-full object-center object-cover rounded-md"
               />
               <div className="flex flex-nowrap gap-4 justify-center">
