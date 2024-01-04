@@ -2,7 +2,7 @@ import { type PageProps } from "$fresh/server.ts";
 
 export default function App({ Component }: PageProps) {
   return (
-    <html className="min-h-screen">
+    <html className="min-h-screen relative">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +10,7 @@ export default function App({ Component }: PageProps) {
         <link rel="stylesheet" href="/styles.css" />
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
       </head>
-      <body className="bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-slate-50">
+      <body className="bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-slate-50 pb-12">
         <Component />
       </body>
     </html>
