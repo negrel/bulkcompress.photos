@@ -116,7 +116,7 @@ function IdleSection() {
         </OutlinedButton>
       </details>
       <Button
-        className="px-4 py-2 mx-auto mb-8"
+        className="px-4 py-2 mx-auto mb-8 hover:scale-x-75"
         disabled={getImages().length === 0}
         onClick={startCompressing}
       >
