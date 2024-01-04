@@ -6,7 +6,6 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
 import * as $index from "./routes/index.tsx";
-import * as $static_name_ from "./routes/static/[...name].tsx";
 import * as $GoToTopButton from "./islands/GoToTopButton.tsx";
 import * as $Home from "./islands/Home.tsx";
 import * as $ImagesCompressor from "./islands/ImagesCompressor.tsx";
@@ -22,7 +21,6 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/_layout.tsx": $_layout,
     "./routes/index.tsx": $index,
-    "./routes/static/[...name].tsx": $static_name_,
   },
   islands: {
     "./islands/GoToTopButton.tsx": $GoToTopButton,
