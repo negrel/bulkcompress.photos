@@ -31,6 +31,51 @@ export default function App({ Component }: PageProps) {
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
+        <meta property="og:site_name" content="Bulk photos compressor" />
+        <meta property="og:title" content="Bulk photos compressor" />
+        <meta
+          property="og:description"
+          content="Fast and efficient image compressor"
+        />
+        <meta
+          property="og:url"
+          content="https://www.bulkcompress.photos/"
+        />
+        <meta
+          property="og:image"
+          content="https://www.bulkcompress.photos/og_banner.png"
+        />
+        <meta
+          name="twitter:title"
+          content="Bulk photos compressor"
+        />
+        <meta
+          name="twitter:description"
+          content="Fast and efficient image compressor"
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+          name="twitter:image"
+          content="https://www.bulkcompress.photos/og_banner.png"
+        />
+        <meta name="twitter:site" content="negrel_dev" />
+        <meta itemprop="name" content="Bulk photos compressor" />
+        <meta
+          itemprop="description"
+          content="Fast and efficient image compressor"
+        />
+        <meta
+          itemprop="image"
+          content="https://www.bulkcompress.photos/og_banner.png"
+        />
+        <meta
+          name="description"
+          content="Fast and efficient image compressor"
+        />
+        <meta
+          name="keywords"
+          content="Image Compression, JPEG Compression, PNG Compression, Lossy Compression, Web Optimization, File Size Reduction, Fast Image Compression, Online Image Compressor, Free Image Compression, Browser-based Compression, Image Quality Preservation, Efficient Compression Tool, Image File Optimization, Reduce Image Size, Website Performance, Email Attachment Limits, Local Compression, User-friendly Compression, High-Quality Compression, Optimized Images"
+        />
       </head>
       <body className="bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-slate-50 pb-12">
         <Component />
