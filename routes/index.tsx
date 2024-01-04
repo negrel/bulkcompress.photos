@@ -15,7 +15,7 @@ export default function Home() {
       </header>
       <HomeIsland />
       <footer className="absolute bottom-0 w-full p-4 dark:bg-slate-800 bg-slate-200">
-        <nav className="flex justify-end gap-4 text-sm">
+        <nav className="flex justify-end gap-2 sm:gap-4 text-sm">
           <a
             href="https://www.buymeacoffee.com/negrel"
             className="underline"
