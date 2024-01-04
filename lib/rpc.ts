@@ -60,7 +60,7 @@ export class RpcWorker {
   }
 
   async remoteProcedureCall<A, R>(
-    rpc: { name: string; args: A[] },
+    rpc: { name: string; args: A },
     options: Partial<RpcOptions> = {},
   ): Promise<R> {
     const { timeout, transfer } = {

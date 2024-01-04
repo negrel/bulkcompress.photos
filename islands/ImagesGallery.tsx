@@ -110,6 +110,7 @@ function ImagesGallery() {
         </div>
         <div
           className={`flex justify-center ${hideSpinner && "hidden"}`}
+          /* @ts-ignore */
           ref={setupIntersectionObserver}
         >
           <Spinner />

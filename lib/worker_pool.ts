@@ -88,7 +88,7 @@ export class WorkerPool {
   }
 
   async forEachWorkerRemoteProcedureCall<A, R>(
-    rpc: { name: string; args: A[] },
+    rpc: { name: string; args: A },
     options?: Partial<RpcOptions>,
   ): Promise<Array<PromiseSettledResult<Awaited<R> | undefined>>> {
     const promises = [];

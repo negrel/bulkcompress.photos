@@ -121,6 +121,7 @@ function InputImages({ accept }: { accept: string[] }) {
         onChange={handleChange}
         className="hidden"
         accept={accept.join(", ")}
+        /* @ts-ignore */
         ref={inputRef}
       />
     </Button>
