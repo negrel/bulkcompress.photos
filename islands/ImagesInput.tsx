@@ -133,6 +133,7 @@ function ImagesInput() {
     "image/png",
     "image/jpg",
     "image/jpeg",
+    "image/webp",
     "image/bmp",
     "image/tiff",
     "image/vnd.microsoft.icon",
