@@ -54,6 +54,14 @@ function IdleSection() {
         updateCompressionOptions({ zipFile: value }),
       disabled: getSelectedImages().length <= 1,
     },
+  }, {
+    name: "convertToJpeg",
+    label: "convert to JPEG",
+    inputCheckbox: {
+      checked: compressionOptions.convertToJpeg,
+      onChange: (value: boolean) =>
+        updateCompressionOptions({ convertToJpeg: value }),
+    },
   }];
 
   return (

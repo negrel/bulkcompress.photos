@@ -43,7 +43,7 @@ self.onmessage = workerProcedureHandler({
   setupWorker(workedId) {
     console.debug("worker", workedId, "setup");
   },
-  async compress(imageFile, { quality, maxWidth, maxHeight }) {
+  async compress(imageFile, { quality, maxWidth, maxHeight, convertToJpeg }) {
     let bitmap = await createImageBitmap(imageFile);
     let drawWidth = bitmap.width;
     let drawHeight = bitmap.height;
@@ -68,7 +68,7 @@ self.onmessage = workerProcedureHandler({
     ctx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
 
     // Image is not a JPEG images, apply JPEG encoding to compress it.
-    if (imageFile.type !== "image/jpeg") {
+    if (imageFile.type !== "image/jpeg" && !convertToJpeg) {
       ctx.drawImage(bitmap, 0, 0, drawWidth, drawHeight);
       const blob = await offscreenCanvas.convertToBlob({
         type: "image/jpeg",
@@ -81,7 +81,7 @@ self.onmessage = workerProcedureHandler({
     ctx.drawImage(bitmap, 0, 0, drawWidth, drawHeight);
 
     const blob = await offscreenCanvas.convertToBlob({
-      type: imageFile.type,
+      type: convertToJpeg ? "image/jpeg" : imageFile.type,
       quality: quality / 100,
     });
 

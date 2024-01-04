@@ -7,6 +7,7 @@ export interface CompressionOptions {
   maxHeight: number;
   zipFile: boolean;
   hardwareConcurrency: number;
+  convertToJpeg: boolean;
 }
 
 interface WorkerCompressOptions {
@@ -33,6 +34,10 @@ export async function compress(
   const zipWriter = new ZipWriter(zipFileWriter);
 
   for (const file of imageFiles) {
+    const filename = options.convertToJpeg
+      ? replaceExtension(file.name, "jpg")
+      : file.name;
+
     const p = (async () => {
       const initialSize = file.size;
 
@@ -54,11 +59,13 @@ export async function compress(
       // Add compressed image to zip.
       if (options.zipFile) {
         const reader = new Uint8ArrayReader(new Uint8Array(compressedImg));
-        return zipWriter.add(file.name, reader) as unknown as Promise<void>;
+        return zipWriter.add(filename, reader) as unknown as Promise<void>;
       } else {
         // Download images directly.
-        const blob = new Blob([compressedImg], { type: file.type });
-        downloadBlob(blob, file.name);
+        const blob = new Blob([compressedImg], {
+          type: options.convertToJpeg ? "image/jpeg" : file.type,
+        });
+        downloadBlob(blob, filename);
       }
     })();
 
@@ -81,4 +88,15 @@ function downloadBlob(blob: Blob, filename: string) {
   anchor.href = window.URL.createObjectURL(blob);
   anchor.download = filename;
   anchor.click();
+}
+
+function replaceExtension(filename: string, ext: string) {
+  const splitted = filename.split(".");
+  if (splitted.length === 1) {
+    splitted.push(ext);
+  } else if (splitted[splitted.length - 1].toLowerCase() !== "jpg") {
+    splitted[splitted.length - 1] = ext;
+  }
+
+  return splitted.join(".");
 }
