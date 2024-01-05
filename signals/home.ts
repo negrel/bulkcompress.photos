@@ -22,7 +22,7 @@ const defaultCompressionOptions: CompressionOptions = {
   maxHeight: 4096,
   zipFile: true,
   hardwareConcurrency: (navigator.hardwareConcurrency ?? 8) / 4,
-  convertToJpeg: true,
+  convert: "none",
 };
 
 const compressionOptions = signal<CompressionOptions>({

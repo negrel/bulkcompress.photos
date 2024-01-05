@@ -7,7 +7,7 @@ export interface CompressionOptions {
   maxHeight: number;
   zipFile: boolean;
   hardwareConcurrency: number;
-  convertToJpeg: boolean;
+  convert: "image/png" | "image/jpeg" | "image/webp" | "none";
 }
 
 interface WorkerCompressOptions {
@@ -34,8 +34,8 @@ export async function compress(
   const zipWriter = new ZipWriter(zipFileWriter);
 
   for (const file of imageFiles) {
-    const filename = options.convertToJpeg
-      ? replaceExtension(file.name, "jpg")
+    const filename = options.convert !== "none"
+      ? replaceExtension(file.name, fileTypeToExtension[options.convert])
       : file.name;
 
     const p = (async () => {
@@ -63,7 +63,7 @@ export async function compress(
       } else {
         // Download images directly.
         const blob = new Blob([compressedImg], {
-          type: options.convertToJpeg ? "image/jpeg" : file.type,
+          type: options.convert !== "none" ? options.convert : file.type,
         });
         downloadBlob(blob, filename);
       }
@@ -83,6 +83,12 @@ export async function compress(
   return results;
 }
 
+const fileTypeToExtension = {
+  "image/png": "png",
+  "image/jpeg": "jpg",
+  "image/webp": "jpg",
+};
+
 function downloadBlob(blob: Blob, filename: string) {
   const anchor = document.createElement("a");
   anchor.href = window.URL.createObjectURL(blob);
@@ -94,7 +100,7 @@ function replaceExtension(filename: string, ext: string) {
   const splitted = filename.split(".");
   if (splitted.length === 1) {
     splitted.push(ext);
-  } else if (splitted[splitted.length - 1].toLowerCase() !== "jpg") {
+  } else if (splitted[splitted.length - 1].toLowerCase() !== ext) {
     splitted[splitted.length - 1] = ext;
   }
 

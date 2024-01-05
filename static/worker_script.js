@@ -39,11 +39,20 @@ function workerProcedureHandler(
   };
 }
 
+function isLosslessImageFormat(format) {
+  switch (format) {
+    case "image/webp", "image/jpeg":
+      return false;
+    default:
+      return true;
+  }
+}
+
 self.onmessage = workerProcedureHandler({
   setupWorker(workedId) {
     console.debug("worker", workedId, "setup");
   },
-  async compress(imageFile, { quality, maxWidth, maxHeight, convertToJpeg }) {
+  async compress(imageFile, { quality, maxWidth, maxHeight, convert }) {
     let bitmap = await createImageBitmap(imageFile);
     let drawWidth = bitmap.width;
     let drawHeight = bitmap.height;
@@ -67,11 +76,13 @@ self.onmessage = workerProcedureHandler({
 
     ctx.clearRect(0, 0, offscreenCanvas.width, offscreenCanvas.height);
 
-    // Image is not a JPEG images, apply JPEG encoding to compress it.
-    if (imageFile.type !== "image/jpeg" && !convertToJpeg) {
+    const convertToLossless = isLosslessImageFormat(
+      convert !== "none" ? convert : imageFile.type,
+    );
+    if (convertToLossless) {
       ctx.drawImage(bitmap, 0, 0, drawWidth, drawHeight);
       const blob = await offscreenCanvas.convertToBlob({
-        type: "image/jpeg",
+        type: "image/webp",
         quality: quality / 100,
       });
 
@@ -81,8 +92,8 @@ self.onmessage = workerProcedureHandler({
     ctx.drawImage(bitmap, 0, 0, drawWidth, drawHeight);
 
     const blob = await offscreenCanvas.convertToBlob({
-      type: convertToJpeg ? "image/jpeg" : imageFile.type,
-      quality: quality / 100,
+      type: convert === "none" ? imageFile.type : convert,
+      quality: convertToLossless ? undefined : quality / 100,
     });
 
     return blob.arrayBuffer();

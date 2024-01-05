@@ -8,6 +8,7 @@ import {
   startCompressing,
   updateCompressionOptions,
 } from "@/signals/home.ts";
+import { CompressionOptions } from "@/lib/compress.ts";
 
 function IdleSection() {
   const compressionOptions = getCompressionOptions();
@@ -55,12 +56,30 @@ function IdleSection() {
       disabled: getSelectedImages().length <= 1,
     },
   }, {
-    name: "convertToJpeg",
-    label: "convert to JPEG",
-    inputCheckbox: {
-      checked: compressionOptions.convertToJpeg,
-      onChange: (value: boolean) =>
-        updateCompressionOptions({ convertToJpeg: value }),
+    name: "convert",
+    label: "convert to",
+    select: {
+      onChange: (value: CompressionOptions["convert"]) =>
+        updateCompressionOptions({ convert: value }),
+      options: [
+        {
+          value: "none",
+          children: "none",
+        },
+        {
+          value: "image/jpeg",
+          children: "jpg",
+        },
+        {
+          value: "image/png",
+          children: "png",
+        },
+        {
+          value: "image/webp",
+          children: "webp",
+        },
+      ],
+      value: compressionOptions.convert,
     },
   }];
 
@@ -69,7 +88,7 @@ function IdleSection() {
       <details className="cursor-pointer my-6 px-4 select-none">
         <summary className="mb-4">Settings</summary>
         {settingsInputs.map(
-          ({ name, label, inputRange, inputNumber, inputCheckbox }) => (
+          ({ name, label, inputRange, inputNumber, inputCheckbox, select }) => (
             <div className="flex flex-wrap align-center justify-center gap-4 my-4">
               <label for={name}>{label}</label>
               <div className="flex flex-nowrap align-center justify-center gap-4 text-slate-950">
@@ -111,6 +130,20 @@ function IdleSection() {
                         (ev.target as HTMLInputElement).checked,
                       )}
                   />
+                )}
+                {select && (
+                  <select
+                    className="px-2"
+                    onChange={(ev) =>
+                      select.onChange(
+                        (ev.target as HTMLSelectElement)
+                          .value as CompressionOptions["convert"],
+                      )}
+                  >
+                    {select.options.map((opt) => (
+                      <option value={opt.value}>{opt.children}</option>
+                    ))}
+                  </select>
                 )}
               </div>
             </div>
