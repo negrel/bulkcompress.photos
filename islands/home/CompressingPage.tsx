@@ -12,6 +12,7 @@ import AlertList from "@/components/AlertList.tsx";
 import InformationCircleIcon from "@/components/InformationCircleIcon.tsx";
 import OutlinedButton from "@/components/OutlinedButton.tsx";
 import Button from "@/components/Button.tsx";
+import BuyMeACoffee from "@/components/BuyMeACoffee.tsx";
 
 function StatsSection({ total }: { total: Omit<CompressionProgress, "file"> }) {
   return (
@@ -275,6 +276,21 @@ function CompressingPage() {
             ? (
               <>
                 <Confettis />
+                <div className="flex flex-col items-center gap-8 my-8">
+                  <p>
+                    It takes time and effort to build a service like this.
+                    <br />
+                    If you like it, consider buying us a coffee :) !
+                  </p>
+                  <BuyMeACoffee />
+                </div>
+                <div className="flex justify-center items-center gap-4 px-4 py-8 max-w-3xl mx-auto">
+                  <div className="flex-1 h-0 border-y border-currentColor" />
+                  <p className="text-center">
+                    I don't care, I just want to compress more images!
+                  </p>
+                  <div className="flex-1 h-0 border-y border-currentColor" />
+                </div>
                 <Button
                   className="px-4 py-2 my-8 mx-auto"
                   onClick={() => {

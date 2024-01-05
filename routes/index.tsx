@@ -1,5 +1,6 @@
 import HomeIsland from "@/islands/Home.tsx";
 import PhotoIcon from "@/components/PhotoIcon.tsx";
+import BuyMeACoffee from "@/components/BuyMeACoffee.tsx";
 
 export default function Home() {
   return (
@@ -15,14 +16,8 @@ export default function Home() {
       </header>
       <HomeIsland />
       <footer className="absolute bottom-0 w-full p-4 dark:bg-slate-800 bg-slate-200">
-        <nav className="flex justify-end gap-2 sm:gap-4 text-sm">
-          <a
-            href="https://www.buymeacoffee.com/negrel"
-            className="underline"
-            target="_blank"
-          >
-            Buy me a coffee
-          </a>
+        <nav className="flex flex-col sm:flex-row flex-wrap justify-end items-center gap-2 sm:gap-4 text-sm">
+          <BuyMeACoffee />
           <a
             href="https://github.com/negrel/bulkcompress.photos"
             className="underline"
