@@ -77,7 +77,7 @@ export default function App({ Component }: PageProps) {
           content="Image Compression, JPEG Compression, PNG Compression, Lossy Compression, Web Optimization, File Size Reduction, Fast Image Compression, Online Image Compressor, Free Image Compression, Browser-based Compression, Image Quality Preservation, Efficient Compression Tool, Image File Optimization, Reduce Image Size, Website Performance, Email Attachment Limits, Local Compression, User-friendly Compression, High-Quality Compression, Optimized Images"
         />
       </head>
-      <body className="bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-slate-50 pb-32 sm:pb-16">
+      <body className="bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-slate-50 pb-40 sm:pb-16">
         <Component />
       </body>
     </html>
