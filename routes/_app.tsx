@@ -77,8 +77,8 @@ export default function App({ Component }: PageProps) {
           content="Image Compression, JPEG Compression, PNG Compression, Lossy Compression, Web Optimization, File Size Reduction, Fast Image Compression, Online Image Compressor, Free Image Compression, Browser-based Compression, Image Quality Preservation, Efficient Compression Tool, Image File Optimization, Reduce Image Size, Website Performance, Email Attachment Limits, Local Compression, User-friendly Compression, High-Quality Compression, Optimized Images"
         />
         <script
-          src="https://prisme.negrel.dev/static/m.js"
-          data-prisme-domain="prisme.negrel.dev"
+          src="https://app.prismeanalytics.com/static/m.js"
+          data-prisme-verification-id="704bea60-1e15-4d37-8586-6a4d5ea45c62"
           async
         >
         </script>
