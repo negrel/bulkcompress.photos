@@ -1,5 +1,7 @@
 import { type PageProps } from "$fresh/server.ts";
 
+const PRISME_ANALYTICS = Deno.env.get("PRISME_ANALYTICS") === "1";
+
 export default function App({ Component }: PageProps) {
   return (
     <html className="min-h-screen relative">
@@ -76,12 +78,15 @@ export default function App({ Component }: PageProps) {
           name="keywords"
           content="Image Compression, JPEG Compression, PNG Compression, Lossy Compression, Web Optimization, File Size Reduction, Fast Image Compression, Online Image Compressor, Free Image Compression, Browser-based Compression, Image Quality Preservation, Efficient Compression Tool, Image File Optimization, Reduce Image Size, Website Performance, Email Attachment Limits, Local Compression, User-friendly Compression, High-Quality Compression, Optimized Images"
         />
-        <script
-          src="https://app.prismeanalytics.com/static/m.js"
-          data-prisme-verification-id="704bea60-1e15-4d37-8586-6a4d5ea45c62"
-          async
-        >
-        </script>
+        {PRISME_ANALYTICS &&
+          (
+            <script
+              src="https://app.prismeanalytics.com/static/m.js"
+              data-prisme-verification-id="704bea60-1e15-4d37-8586-6a4d5ea45c62"
+              async
+            >
+            </script>
+          )}
       </head>
       <body className="bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-slate-50 pb-40 sm:pb-16">
         <Component />
