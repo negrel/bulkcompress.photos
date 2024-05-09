@@ -1,4 +1,5 @@
 import { type PageProps } from "$fresh/server.ts";
+import PrismeBanner from "@/components/PrismeBanner.tsx";
 
 const PRISME_ANALYTICS = Deno.env.get("PRISME_ANALYTICS") === "1";
 
@@ -89,6 +90,7 @@ export default function App({ Component }: PageProps) {
           )}
       </head>
       <body className="bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-slate-50 pb-40 sm:pb-16">
+        <PrismeBanner />
         <Component />
       </body>
     </html>
