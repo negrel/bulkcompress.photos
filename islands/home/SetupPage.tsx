@@ -14,7 +14,7 @@ function SetupPage() {
       </div>
       <ImagesCompressor />
       <div className="max-w-3xl mx-auto px-4 pb-8 mt-8">
-        <dd>
+        <dl>
           <dt className="text-lg font-bold mb-2">
             Bulk photos / images compressor
           </dt>
@@ -27,12 +27,12 @@ function SetupPage() {
               <li>Compress!</li>
             </ol>
           </dd>
-        </dd>
-        <dd>
+        </dl>
+        <dl>
           <dt className="text-lg font-bold my-2">
             No upload. No sign up.
           </dt>
-        </dd>
+        </dl>
         <section className="mt-8">
           <h2 className="text-xl font-bold mb-2">
             Fast and Efficient Image Compression
