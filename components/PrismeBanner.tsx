@@ -11,6 +11,7 @@ function PrismeBanner() {
         <div className="flex flex-col sm:flex-row items-center gap-4">
           <a href="https://www.prismeanalytics.com">
             <img
+              loading="lazy"
               src="https://www.prismeanalytics.com/logo.jpg"
               className="w-16"
             />
