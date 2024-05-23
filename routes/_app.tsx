@@ -1,7 +1,7 @@
 import { type PageProps } from "$fresh/server.ts";
 import PrismeBanner from "@/components/PrismeBanner.tsx";
 
-const PRISME_ANALYTICS = Deno.env.get("PRISME_ANALYTICS") === "1";
+const PRISME_ANALYTICS = Deno.env.get("PRISME_ANALYTICS");
 
 export default function App({ Component }: PageProps) {
   return (
@@ -79,11 +79,11 @@ export default function App({ Component }: PageProps) {
           name="keywords"
           content="Image Compression, JPEG Compression, PNG Compression, Lossy Compression, Web Optimization, File Size Reduction, Fast Image Compression, Online Image Compressor, Free Image Compression, Browser-based Compression, Image Quality Preservation, Efficient Compression Tool, Image File Optimization, Reduce Image Size, Website Performance, Email Attachment Limits, Local Compression, User-friendly Compression, High-Quality Compression, Optimized Images"
         />
-        {PRISME_ANALYTICS &&
+        {PRISME_ANALYTICS !== undefined &&
           (
             <script
               src="https://app.prismeanalytics.com/static/m.js"
-              data-prisme-verification-id="704bea60-1e15-4d37-8586-6a4d5ea45c62"
+              data-prisme-verification-id={PRISME_ANALYTICS}
               async
             >
             </script>
