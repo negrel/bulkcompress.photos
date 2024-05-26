@@ -1942,5 +1942,10 @@
     "https://jsr.io/@std/path/0.213.1/windows/separator.ts": "e51c5522140eff4f8402617c5c68a201fdfa3a1a8b28dc23587cff931b665e43",
     "https://jsr.io/@std/path/0.213.1/windows/to_file_url.ts": "cdead9ba8f1e4062c3c45a7c9fa6384e209b734526b4c6ab36ce2f17339367f5",
     "https://jsr.io/@std/path/0.213.1/windows/to_namespaced_path.ts": "96dd0d55d484905e06553fd7d5feb6b3e4c0c99c337fda4199b6c32bce44833a"
+  },
+  "workspace": {
+    "dependencies": [
+      "npm:tailwindcss@3.3.5"
+    ]
   }
 }

@@ -25,7 +25,10 @@ export default function Home() {
           >
             Source code
           </a>
-          <a href="https://www.negrel.dev/#contact" className="underline">
+          <a
+            href="https://www.negrel.dev/feedback/?project=bulkcompress.photos"
+            className="underline"
+          >
             Feedback
           </a>
           <a
