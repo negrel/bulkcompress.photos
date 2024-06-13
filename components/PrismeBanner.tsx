@@ -13,6 +13,7 @@ function PrismeBanner() {
             <img
               loading="lazy"
               src="https://www.prismeanalytics.com/logo.jpg"
+              alt="Prisme Analytics logo"
               className="w-16"
             />
           </a>
