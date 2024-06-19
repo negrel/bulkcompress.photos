@@ -38,7 +38,7 @@ export default function App({ Component }: PageProps) {
         <meta property="og:title" content="Bulk photos compressor" />
         <meta
           property="og:description"
-          content="Fast and efficient image compressor"
+          content="Compress images quickly and easily with our fast and efficient photos compressor! Reduce file sizes without sacrificing quality, and speed up your website's load times. Try it now and see the difference!"
         />
         <meta
           property="og:url"
@@ -54,7 +54,7 @@ export default function App({ Component }: PageProps) {
         />
         <meta
           name="twitter:description"
-          content="Fast and efficient image compressor"
+          content="Compress images quickly and easily with our fast and efficient photos compressor! Reduce file sizes without sacrificing quality, and speed up your website's load times. Try it now and see the difference!"
         />
         <meta name="twitter:card" content="summary_large_image" />
         <meta
@@ -65,7 +65,7 @@ export default function App({ Component }: PageProps) {
         <meta itemprop="name" content="Bulk photos compressor" />
         <meta
           itemprop="description"
-          content="Fast and efficient image compressor"
+          content="Compress images quickly and easily with our fast and efficient photos compressor! Reduce file sizes without sacrificing quality, and speed up your website's load times. Try it now and see the difference!"
         />
         <meta
           itemprop="image"
@@ -73,7 +73,7 @@ export default function App({ Component }: PageProps) {
         />
         <meta
           name="description"
-          content="Fast and efficient image compressor"
+          content="Compress images quickly and easily with our fast and efficient photos compressor! Reduce file sizes without sacrificing quality, and speed up your website's load times. Try it now and see the difference!"
         />
         <meta
           name="keywords"
