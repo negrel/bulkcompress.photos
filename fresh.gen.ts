@@ -13,7 +13,7 @@ import * as $ImagesGallery from "./islands/ImagesGallery.tsx";
 import * as $ImagesInput from "./islands/ImagesInput.tsx";
 import * as $home_CompressingPage from "./islands/home/CompressingPage.tsx";
 import * as $home_SetupPage from "./islands/home/SetupPage.tsx";
-import { type Manifest } from "$fresh/server.ts";
+import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {

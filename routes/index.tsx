@@ -37,8 +37,7 @@ export default function Home() {
             target="_blank"
             rel="author"
           >
-            Made with <span className="text-red-500">❤️</span>{" "}
-            by Alexandre Negrel
+            Made with <span className="text-red-500">❤️</span> by @negrel
           </a>
         </nav>
       </footer>
